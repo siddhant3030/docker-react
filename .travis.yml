@@ -10,3 +10,22 @@ before_install:
 
 script: 
     - docker run -e CI=true siddhant777/docker-react npm run test
+
+deploy: 
+    provider: elasticbeanstalk
+    region: us-west-2 # region in aws
+    app: "docker" #application name in aws
+    env: "Docker-env" # Same as application in aws elasticbeanstalk
+    bucket_name: elasticbeanstalk # aws s3 bucket name
+    bucket_path: "docker" #application name in aws
+    on:
+        branch: master
+    access_key_id: "$AWS_ACCESS_KEY"
+    secret_access_key: "$AWS_SECRET_KEY"
+
+       # There is a slight change that will be required, otherwise you will get an error when Travis attempts to run your code.
+
+        # The code will now look like this:
+        
+        # access_key_id: $AWS_ACCESS_KEY
+        # secret_access_key: $AWS_SECRET_KEY
