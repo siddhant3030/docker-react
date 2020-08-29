@@ -72,4 +72,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 2. docker container run --publish 80:80 --detach nginx
 3. docker container ls
 4. docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql 
-5. 
+5. docker logs db
+6. root password = DieGohx8ohX9uudulaechurahkeengoo
+7. docker container run -d --name webserver -p 8080:80 httpd
+8. docker container run -d --name proxy -p 80:80 nginx
+9. docker container top db 
+10. docker container top f2878f91a56a
